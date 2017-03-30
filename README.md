@@ -6,11 +6,13 @@ In MSA, each applications deploy as independent web applicaitons. But almost use
 
 We need to integrate each applicaions as an application by URL.
 
-# What is path proxy
+# What is pass proxy
 
-The path proxy integrate each applications URL by "path".
+The pass proxy integrate each applications URL by "path".
 
 e.g. 
+
+![nginx pass proxy](./ngix_pass_proxy.png)
 
 |Applciation|Application Address|Proxy Address|
 |-----------|-------------------|-------------|
@@ -22,7 +24,7 @@ e.g.
 # How to configure nginx.
 
 The nginx Reverse Proxy configured by nginx.conf.
-e.g. Path proxy from www.eshop.com to 10.0.0.1
+e.g. Pass proxy from www.eshop.com to 10.0.0.1
 
 ```
 http {
@@ -46,10 +48,10 @@ http {
 Reverse Proxy configuration in "http" sections.
 In the "location" section define proxy pass and server location.
 
-# How to run nginx path proxy
+# How to run nginx pass proxy
 
 Run docker container with conf file.
 
 ```
- docker run --name nginx-path-proxy -v ./nginx.conf:/etc/nginx/nginx.conf:ro -d nginx
+ docker run --name nginx-pass-proxy -v ./nginx.conf:/etc/nginx/nginx.conf:ro -d nginx
 ```
